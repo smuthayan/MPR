@@ -9,9 +9,15 @@
 #include <ctime>
 #include <cstddef>
 #include <time.h>
-#include <stdio.h>
+#include <cmath>
 
-
+::std::double_t calculateDist(::std::uint64_t pointX, ::std::uint64_t pointY, ::std::uint64_t pointX2, ::std::uint64_t pointY2)
+{
+	::std::int64_t changeInX = pointX2 - pointX;
+	::std::int64_t changeInY = pointY2 - pointY;
+	
+	return (::std::double_t)sqrt((pow(changeInX, 2) + pow(changeInY, 2)));
+}
 
 int main()
 {
@@ -71,8 +77,8 @@ int main()
 					else
 					{
 						
-						tempPos.x = (lastPos.x - firstPos.x);
-						tempPos.y = (lastPos.y - firstPos.y);
+						tempPos.x = (firstPos.x - lastPos.x);
+						tempPos.y = (firstPos.y - lastPos.y);
 						// Print out coordinates to text file @ Dir of project
 						counter++;
 						file << "X pos: " << firstPos.x << " Y pos: " << firstPos.y << std::endl;
@@ -83,7 +89,9 @@ int main()
 						}
 						else
 						{
-							file << "			Difference in X: " << tempPos.x << " Difference in Y: " << tempPos.y << std::endl; // \e[1mBold\e
+							file << "			Difference in X: " << tempPos.x << " Difference in Y: " << tempPos.y << std::endl;
+							file << "			Distance between points: " << calculateDist(lastPos.x, lastPos.y, firstPos.x, firstPos.y) << std::endl; // ::std::uint64_t calculateDist(POINT pointX, POINT pointY, POINT pointX2, POINT pointY2)
+							
 						}
 						lastPos.x = firstPos.x; // Use these for checking current against last coordinates
 						lastPos.y = firstPos.y;
