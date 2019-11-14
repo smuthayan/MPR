@@ -22,7 +22,7 @@
 int main()
 {
 	
-	::std::uint16_t counter = 1;
+	::std::uint16_t counter = 0;
 	::std::uint32_t sleepTime;
 	POINT tempPos;
 		tempPos.x;
@@ -65,8 +65,8 @@ int main()
 					file.close();
 					return 0;
 				}
-					else
-					{
+				else
+				{
 
 					GetCursorPos(&firstPos);
 					Sleep(sleepTime);
@@ -76,29 +76,33 @@ int main()
 					}
 					else
 					{
-						
+
 						tempPos.x = (firstPos.x - lastPos.x);
 						tempPos.y = (firstPos.y - lastPos.y);
 						// Print out coordinates to text file @ Dir of project
-						counter++;
-						file << "X pos: " << firstPos.x << " Y pos: " << firstPos.y << std::endl;
-						if (counter % 2 == 0)
-						{
 
-							
-						}
-						else
+						file << "X pos: " << firstPos.x << " Y pos: " << firstPos.y << std::endl;
+
+
+
+
+
+
+
+
+
+						if (counter >= 1)
 						{
 							file << "			Difference in X: " << tempPos.x << " Difference in Y: " << tempPos.y << std::endl;
 							file << "			Distance between points: " << calculateDist(lastPos.x, lastPos.y, firstPos.x, firstPos.y) << std::endl; // ::std::uint64_t calculateDist(POINT pointX, POINT pointY, POINT pointX2, POINT pointY2)
-							
+
 						}
 						lastPos.x = firstPos.x; // Use these for checking current against last coordinates
 						lastPos.y = firstPos.y;
-						
+						counter++;
 					}
-
-					}
+				}
+					
 
 
 
