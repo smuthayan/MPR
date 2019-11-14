@@ -20,14 +20,16 @@
 #include <cmath>
 
 ::std::double_t calculateDist(::std::uint64_t pointX, ::std::uint64_t pointY, ::std::uint64_t pointX2, ::std::uint64_t pointY2) {
-  ::std::int64_t changeInX = pointX2 - pointX;::std::int64_t changeInY = pointY2 - pointY;
+  ::std::int64_t changeInX = pointX2 - pointX;
+  ::std::int64_t changeInY = pointY2 - pointY;
 
   return (::std::double_t) sqrt((pow(changeInX, 2) + pow(changeInY, 2)));
 }
 
 int main() {
 
-  ::std::uint16_t counter = 0;::std::uint32_t sleepTime;
+  ::std::uint16_t counter = 0;
+  ::std::uint32_t sleepTime;
   POINT tempPos;
   tempPos.x;
   tempPos.y;
