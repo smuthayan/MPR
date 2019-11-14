@@ -49,10 +49,10 @@ int main() {
   std::cout << "\n";
   while (true) {
     if (std::cin.fail()) {
-      std::cin.clear();#
-      undef max // If you don't undef max you will get conflicts with <Windows.h> "max" and <iostream> "max"
+      std::cin.clear();
+      #undef max // If you don't undef max you will get conflicts with <Windows.h> "max" and <iostream> "max"
       std::cin.ignore(std::numeric_limits < std::streamsize > ::max(), '\n'); // Clear buffer
-      std::cout << "Please enter valid input!" << "\n";
+      std::cout << "Please enter valid input!" << std::endl;
       std::cin >> sleepTime;
     }
     break;
