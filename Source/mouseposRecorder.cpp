@@ -37,6 +37,8 @@ int main() {
   lastPos.x = -1;
   lastPos.y = -1;
   POINT firstPos;
+  firstPos.x;
+  firstPos.y;
   std::ofstream file;
   file.open("Output.txt", std::fstream::out);
   if (!file) {
