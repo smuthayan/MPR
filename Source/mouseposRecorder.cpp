@@ -62,7 +62,7 @@ int main() {
     if ((GetAsyncKeyState(VK_CONTROL) & 0x8000) && (GetAsyncKeyState(VK_LBUTTON) & 0x8000) && (GetAsyncKeyState(VK_RBUTTON) & 0x8000)) // If all of these keys are pressed then execute. (Try and guess the game...)
     {
       while (true) {
-        if (GetAsyncKeyState(VK_F12)) // You don't have to explicity call "file.close" as it automatically at the end of its scope
+        if (GetAsyncKeyState(VK_F12)) // Note that any open file is automatically closed when the fstream object is destroyed. (http://www.cplusplus.com/reference/fstream/fstream/close/)
         {
 
           file.close();
